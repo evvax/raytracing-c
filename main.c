@@ -6,6 +6,7 @@
 #define WIDTH 900
 #define HEIGHT 600
 #define COLOR_WHITE 0xffffffff
+#define COLOR_BLACK 0x00000000
 
 struct Circle
 {
@@ -39,6 +40,7 @@ int main(int argc, char* argv[])
   SDL_Rect rect = (SDL_Rect) {200,200,200,200};
 
   struct Circle circle = {200, 200, 80};
+  SDL_Rect erase_rect = {0,0,WIDTH,HEIGHT};
 
   int simulation_running = 1;
   SDL_Event event;
@@ -50,7 +52,13 @@ int main(int argc, char* argv[])
       {
         simulation_running = 0;
       }
+      if (event.type == SDL_MOUSEMOTION && event.motion.state != 0)
+      {
+        circle.x = event.motion.x;
+        circle.y = event.motion.y;
+      }
     }
+    SDL_FillRect (surface, &erase_rect, COLOR_BLACK);
     FillCircle(surface, circle, COLOR_WHITE);
     
     SDL_UpdateWindowSurface(window);
