@@ -40,7 +40,7 @@ int main(int argc, char* argv[])
   SDL_Rect rect = (SDL_Rect) {200,200,200,200};
 
   struct Circle circle = {200, 200, 80};
-  struct Circle shadow_circle = {500, 300, 140};
+  struct Circle shadow_circle = {650, 300, 140};
   SDL_Rect erase_rect = {0,0,WIDTH,HEIGHT};
 
   int simulation_running = 1;
