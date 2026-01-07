@@ -40,6 +40,7 @@ int main(int argc, char* argv[])
   SDL_Rect rect = (SDL_Rect) {200,200,200,200};
 
   struct Circle circle = {200, 200, 80};
+  struct Circle shadow_circle = {500, 300, 140};
   SDL_Rect erase_rect = {0,0,WIDTH,HEIGHT};
 
   int simulation_running = 1;
@@ -60,6 +61,8 @@ int main(int argc, char* argv[])
     }
     SDL_FillRect (surface, &erase_rect, COLOR_BLACK);
     FillCircle(surface, circle, COLOR_WHITE);
+
+    FillCircle(surface, shadow_circle, COLOR_WHITE);
     
     SDL_UpdateWindowSurface(window);
     SDL_Delay(10);
