@@ -1,4 +1,3 @@
 # raytracing-c
 
-- two circle rn, a normal one and a shadowing one.
-- trying to create rays and angles.
+- using 2 * M_PI instead of 360 as angle ray.

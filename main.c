@@ -44,7 +44,7 @@ void generate_rays(struct Circle circle, struct Ray rays[RAYS_NUMBER])
 {
   for (int i=0; i<RAYS_NUMBER; i++)
   {
-    double angle = ((double) i / RAYS_NUMBER) * 360;
+    double angle = ((double) i / RAYS_NUMBER) * 2 * M_PI;
     printf("angle: %f\n", angle);
   }
 }
