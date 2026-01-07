@@ -7,12 +7,20 @@
 #define HEIGHT 600
 #define COLOR_WHITE 0xffffffff
 #define COLOR_BLACK 0x00000000
+#define RAYS_NUMBER 100
 
 struct Circle
 {
   double x;
   double y;
   double r;
+};
+
+struct Ray
+{
+  double x_start,y_start;
+  double angle;
+  double x_end, y_end;
 };
 
 void FillCircle(SDL_Surface* surface, struct Circle circle, Uint32 color)
@@ -32,6 +40,15 @@ void FillCircle(SDL_Surface* surface, struct Circle circle, Uint32 color)
   }
 }
 
+void generate_rays(struct Circle circle, struct Ray rays[RAYS_NUMBER])
+{
+  for (int i=0; i<RAYS_NUMBER; i++)
+  {
+    double angle = ((double) i / RAYS_NUMBER) * 360;
+    printf("angle: %f\n", angle);
+  }
+}
+
 int main(int argc, char* argv[])
 {
   SDL_Init(SDL_INIT_VIDEO);
@@ -42,6 +59,9 @@ int main(int argc, char* argv[])
   struct Circle circle = {200, 200, 80};
   struct Circle shadow_circle = {650, 300, 140};
   SDL_Rect erase_rect = {0,0,WIDTH,HEIGHT};
+
+  struct Ray rays[RAYS_NUMBER];
+  generate_rays(circle, rays);
 
   int simulation_running = 1;
   SDL_Event event;
